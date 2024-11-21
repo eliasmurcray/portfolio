@@ -1,5 +1,7 @@
 # Miscellaneous
 public/
+yarn.lock
+.firebaserc
 
 # Logs
 logs
