@@ -1,0 +1,95 @@
+section.hero
+  width: 100%
+  padding: 140px  max(40px, calc((100vw - 1200px) / 2))
+  box-sizing: border-box
+  opacity: 0
+  header.hero-header
+    position: fixed
+    top: 40px
+    right: 40px
+    width: 100%
+    height: 50px
+    display: flex
+    justify-content: flex-end
+    nav
+      height: 100%
+      ul
+        list-style: none
+        margin: 0
+        padding: 0
+        display: flex
+        align-items: center
+        column-gap: 1rem
+        li
+          height: 100%
+          line-height: 1
+          a
+            text-decoration: none
+            color: #121318
+            font-size: 0.825rem
+  &.in-view
+    animation: slide-up 0.5s ease-in-out forwards
+  div.inner-content
+    width: 100%
+    height: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    column-gap: 90px
+    img
+      width: 380px
+      border-radius: 4px
+      box-shadow: 1px 1px 4px #0002
+    div.content
+      max-width: 550px
+      color: #333338
+      div.greeting
+        color: #6b7280
+        font-weight: 300
+      h2
+        display: inline-block
+        font-size: 2rem
+        margin: 0 0 1rem
+        font-weight: 300
+        font-family: Rubik
+        span:nth-child(1)
+          background: -webkit-linear-gradient(15deg, #12abff, #364aff)
+          -webkit-background-clip: text
+          -webkit-text-fill-color: #0000
+      p
+        margin: 0
+    a
+      text-decoration: none
+      margin-top: 2rem
+      border-radius: 4px
+      line-height: 1
+      cursor: pointer
+      font-size: 0.825rem
+      padding: 0 1.825rem
+      height: calc(1rem + 1.75rem)
+      display: inline-flex
+      align-items: center
+      transition: .2s ease-in-out filter, .2s ease-in-out box-shadow, .2s ease-in-out transform
+      &:nth-of-type(1)
+        margin-right: 1.5rem
+        background-color: #28282c
+        color: #f8f8f8
+        box-shadow: 0 0 2px #28283c44
+        &:hover::after
+          top: 0
+          left: 0
+        &:hover:not(:active)
+          transform: translateY(-3px)
+          box-shadow: 0 1px 4px #28282c22
+          filter: brightness(115%)
+      &:nth-of-type(2)
+        background-color: #0000
+        color: #28282c
+        outline: 1px solid #28282c22
+        svg
+          fill: #28282c
+          margin-left: .5rem
+          vertical-align: text-bottom
+        &:hover:not(:active)
+          transform: translateY(-3px)
+          box-shadow: 0 1px 2px #28282c44
