@@ -2,6 +2,7 @@
 public/
 yarn.lock
 .firebaserc
+.DS_Store
 
 # Logs
 logs

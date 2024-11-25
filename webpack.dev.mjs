@@ -39,13 +39,13 @@ export default {
 		new HTMLWebpackPlugin({
 			template: "./src/index.html",
 		}),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: 'src/assets/',
-          to: ''
-        }
-      ],
-    })
+		new CopyWebpackPlugin({
+			patterns: [
+				{
+					from: "src/assets/",
+					to: "",
+				},
+			],
+		}),
 	],
 };

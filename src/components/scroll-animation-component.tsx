@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/scroll-animation-component.sass';
+import "../styles/scroll-animation-component.sass";
 
 interface ScrollAnimationProps {
 	children: React.JSX.Element[];

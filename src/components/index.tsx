@@ -3,9 +3,10 @@ import Hero from "./hero";
 import "../styles/index.sass";
 
 export default function Index(): React.JSX.Element {
-  return (
-    <main className="index">
-      <Hero />
-    </main>
-  );
+	return (
+		<main className="index">
+			<Hero />
+			<div style={{ height: "100vh" }} />
+		</main>
+	);
 }

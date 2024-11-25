@@ -3,6 +3,36 @@ import ScrollAnimationComponent from "./scroll-animation-component";
 import "../styles/hero.sass";
 
 export default class Hero extends React.Component {
+	constructor(props: object) {
+		super(props);
+		this.handleMouseEnter = this.handleMouseEnter.bind(this);
+		this.handleMouseMove = this.handleMouseMove.bind(this);
+		this.handleMouseLeave = this.handleMouseLeave.bind(this);
+	}
+
+	private handleMouseEnter(ev: React.MouseEvent<HTMLDivElement>): void {
+		const container = ev.currentTarget as HTMLDivElement;
+		container.style.transition = "transform 0.2s ease, box-shadow 0.2s ease";
+	}
+
+	private handleMouseMove(ev: React.MouseEvent<HTMLDivElement>): void {
+		const container = ev.currentTarget as HTMLDivElement;
+		const { width, height, left, top } = container.getBoundingClientRect();
+		const x = (ev.clientX - left) / width;
+		const y = (ev.clientY - top) / height;
+		const rotationX = (y - 0.5) * 20;
+		const rotationY = (x - 0.5) * -20;
+		container.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg) scale(1.1)`;
+		container.style.setProperty("--x", `${x * 100}%`);
+		container.style.setProperty("--y", `${y * 100}%`);
+	}
+
+	private handleMouseLeave(ev: React.MouseEvent<HTMLDivElement>): void {
+		const container = ev.currentTarget as HTMLDivElement;
+		container.style.transition = "transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out";
+		container.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+	}
+
 	override render(): React.JSX.Element {
 		return (
 			<ScrollAnimationComponent className="hero">
@@ -48,7 +78,19 @@ export default class Hero extends React.Component {
 							</svg>
 						</a>
 					</div>
-          <img src="gigachad.webp" alt="Elias Murcray wearing a cool white hoodie" width="400" />
+					<div
+						className="shadow-wrapper"
+						onMouseEnter={this.handleMouseEnter}
+						onMouseMove={this.handleMouseMove}
+						onMouseLeave={this.handleMouseLeave}
+					>
+						<img
+							src="gigachad.webp"
+							alt="Elias Murcray wearing a cool white hoodie"
+							width="300"
+						/>
+						<div className="hover-light"></div>
+					</div>
 				</div>
 			</ScrollAnimationComponent>
 		);
